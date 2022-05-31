@@ -4,9 +4,9 @@ class AppColors {
   static Color primaryColor(double opacity) {
     try {
       // return Color(int.parse(settingRepo.setting.value.mainColor.replaceAll("#", "0xFF"))).withOpacity(opacity);
-      return const Color(0xFF01B051).withOpacity(opacity);
+      return const Color(0xFF640293).withOpacity(opacity);
     } catch (e) {
-      return const Color(0xFF01B051).withOpacity(opacity);
+      return const Color(0xFF640293).withOpacity(opacity);
     }
   }
 
@@ -32,9 +32,9 @@ class AppColors {
   static Color primaryDarkColor(double opacity) {
     try {
       // return Color(int.parse(settingRepo.setting.value.mainColor.replaceAll("#", "0xFF"))).withOpacity(opacity);
-      return const Color(0xFF059B4A);
+      return const Color(0xFF640293);
     } catch (e) {
-      return const Color(0xFF059B4A).withOpacity(opacity);
+      return const Color(0xFF640293).withOpacity(opacity);
     }
   }
 
@@ -90,9 +90,9 @@ class AppColors {
 // );
 }
 
-final primaryColor = const Color(0xFF01B051);
-final primaryColorDark = const Color(0xFF01B051);
-final primaryColorLight = const Color(0x6601B051);
+final primaryColor = const Color(0xFF640293);
+final primaryColorDark = const Color(0xFF640293);
+final primaryColorLight = const Color(0xFF640293);
 final secondaryColor = const Color(0x6601B051);
 final scaffoldBgColor = const Color(0xFFF8F8F8); //#E5E5E5
 // final secondaryColor = Color(0xFFFB8C00);
