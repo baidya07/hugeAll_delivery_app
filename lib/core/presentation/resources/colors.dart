@@ -19,7 +19,6 @@ class AppColors {
     }
   }
 
-
   static Color secondaryLightColor(double opacity) {
     try {
       // return Color(int.parse(settingRepo.setting.value.mainColor.replaceAll("#", "0xFF"))).withOpacity(opacity);
@@ -38,11 +37,6 @@ class AppColors {
     }
   }
 
-
-
-
-
-
   static Color scaffoldColor(double opacity) {
     try {
       // return Color(int.parse(settingRepo.setting.value.mainColor.replaceAll("#", "0xFF"))).withOpacity(opacity);
@@ -55,17 +49,18 @@ class AppColors {
   static Color colorBlack(double opacity) {
     try {
       // return Color(int.parse(settingRepo.setting.value.mainColor.replaceAll("#", "0xFF"))).withOpacity(opacity);
-      return  Colors.black.withOpacity(opacity);
+      return Colors.black.withOpacity(opacity);
     } catch (e) {
-      return  Colors.black.withOpacity(opacity);
+      return Colors.black.withOpacity(opacity);
     }
   }
+
   static Color colorWhite(double opacity) {
     try {
       // return Color(int.parse(settingRepo.setting.value.mainColor.replaceAll("#", "0xFF"))).withOpacity(opacity);
-      return  Colors.white.withOpacity(opacity);
+      return Colors.white.withOpacity(opacity);
     } catch (e) {
-      return  Colors.white.withOpacity(opacity);
+      return Colors.white.withOpacity(opacity);
     }
   }
 
@@ -80,7 +75,7 @@ class AppColors {
 
   //other colors
   static Color amber = const Color(0xFFF6B500);
-  static Color grey1=const Color(0xffF6F6F6);
+  static Color grey1 = const Color(0xffF6F6F6);
 
 // LinearGradient buttonGradient =  LinearGradient(
 //   begin: Alignment(0.96, 0.0),
@@ -90,7 +85,7 @@ class AppColors {
 // );
 }
 
-final primaryColor = const Color(0xFF01B051);
+final primaryColor = const Color(0xFF640293);
 final primaryColorDark = const Color(0xFF01B051);
 final primaryColorLight = const Color(0x6601B051);
 final secondaryColor = const Color(0x6601B051);
