@@ -89,7 +89,9 @@ class _Buttons extends StatelessWidget {
           ),
           SBC.sH,
           PrimaryOutlinedButton(
-            onPressed: () {},
+            onPressed: () {
+              context.router.navigate(const LoginRoute());
+            },
             title: "Login",
             width: 350,
             color: const Color.fromARGB(255, 10, 82, 225),

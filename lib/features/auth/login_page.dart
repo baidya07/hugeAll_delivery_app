@@ -110,7 +110,9 @@ class _LoginPageState extends State<LoginPage> {
                           primary: const Color(0xff640293),
                           maximumSize: const Size(330, 50),
                           minimumSize: const Size(330, 50)),
-                      onPressed: () {},
+                      onPressed: () {
+                        context.router.navigate(const LandingRoute());
+                      },
                       child: const Text('Login')),
                 ),
               ],
