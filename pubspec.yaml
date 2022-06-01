@@ -88,6 +88,7 @@ dependencies:
   auto_route: ^3.2.2 #AutoRoute is a declarative routing solution, where everything needed for navigation is automatically generated for you.
   carousel_slider: ^4.1.1
   dots_indicator: ^2.1.0
+  intl_phone_field: ^3.1.0
 
 dev_dependencies:
   flutter_test:
@@ -129,7 +130,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/
-  #   - images/a_dot_ham.jpeg
+    - assets/svg/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

@@ -1,11 +1,14 @@
 // ignore_for_file: sized_box_for_whitespace
 
+import 'package:auto_route/auto_route.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:hugeall_delivery_app/core/presentation/resources/colors.dart';
 import 'package:hugeall_delivery_app/core/presentation/resources/size_constants.dart';
 import 'package:dots_indicator/dots_indicator.dart';
+import 'package:hugeall_delivery_app/core/presentation/routes/router.gr.dart';
 import 'package:hugeall_delivery_app/core/presentation/widget/forms/buttons.dart';
+import 'package:hugeall_delivery_app/features/auth/login_page.dart';
 
 final List<Widget> itemList = [
   const _SliderOne(),
@@ -92,7 +95,9 @@ class _SplashPageState extends State<SplashPage> {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     PrimaryButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        context.router.navigate(const LoginRoute());
+                      },
                       title: "Sign up",
                       width: 350,
                     ),
