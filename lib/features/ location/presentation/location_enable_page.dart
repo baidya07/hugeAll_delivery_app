@@ -15,9 +15,10 @@ class LocationPage extends StatelessWidget {
       bottomNavigationBar: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          PrimaryOutlinedButton(onPressed: (){}, title: 'Skip', width: 180,),
+          PrimaryOutlinedButton(onPressed: (){
+          }, title: 'Skip', width: 180,),
           PrimaryButton(onPressed: (){
-            context.router.navigate(const LandingRoute());
+            context.router.push(const HomeRouter());
           }, title: 'Use Location', width: 180,),
         ],
       ),

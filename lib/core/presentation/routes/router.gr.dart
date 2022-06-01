@@ -60,8 +60,10 @@ class AppRouter extends _i8.RootStackRouter {
 
   @override
   List<_i8.RouteConfig> get routes => [
+        _i8.RouteConfig('/#redirect',
+            path: '/', redirectTo: '/landing', fullMatch: true),
         _i8.RouteConfig(LocationRoute.name, path: '/location-page'),
-        _i8.RouteConfig(ParcelRoute.name, path: '/'),
+        _i8.RouteConfig(ParcelRoute.name, path: '/parcel-page'),
         _i8.RouteConfig(LandingRoute.name, path: '/landing', children: [
           _i8.RouteConfig(HomeRouter.name, path: '', parent: LandingRoute.name),
           _i8.RouteConfig(WalletRouter.name,
@@ -85,7 +87,7 @@ class LocationRoute extends _i8.PageRouteInfo<void> {
 /// generated route for
 /// [_i2.ParcelPage]
 class ParcelRoute extends _i8.PageRouteInfo<void> {
-  const ParcelRoute() : super(ParcelRoute.name, path: '/');
+  const ParcelRoute() : super(ParcelRoute.name, path: '/parcel-page');
 
   static const String name = 'ParcelRoute';
 }

@@ -91,8 +91,8 @@ class AppColors {
 }
 
 final primaryColor = const Color(0xFF640293);
-final primaryColorDark = const Color(0xFF640293);
-final primaryColorLight = const Color(0xFF640293);
+final primaryColorDark = const Color(0xFF640253);
+final primaryColorLight = const Color(0xFF640276);
 final secondaryColor = const Color(0x6601B051);
 final scaffoldBgColor = const Color(0xFFF8F8F8); //#E5E5E5
 // final secondaryColor = Color(0xFFFB8C00);

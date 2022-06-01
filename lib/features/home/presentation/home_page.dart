@@ -1,5 +1,7 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:hugeall_delivery_app/core/presentation/routes/router.gr.dart';
 
 import '../../../core/presentation/resources/size_constants.dart';
 import '../../../core/presentation/resources/ui_assets.dart';
@@ -34,12 +36,17 @@ class HomePage extends StatelessWidget {
               SBC.xxLH,
               Text('Our Service', style: Theme.of(context).textTheme.bodyText2,),
               SBC.lH,
-              const _ServiceMethods(iconImage: 'parcel_icon.svg', title: 'Send Parcel'),
+              _ServiceMethods(
+                iconImage: 'parcel_icon.svg',
+                title: 'Send Parcel',
+                onTap: (){
+                  context.router.navigate(const ParcelRoute());
+                  },
+              ),
               SBC.lH,
-              const _ServiceMethods(iconImage: 'track_order_icon.svg', title: 'Track Order'),
+              _ServiceMethods(iconImage: 'track_order_icon.svg', title: 'Track Order', onTap: (){},),
               SBC.lH,
-              const _ServiceMethods(iconImage: 'wallet_icon.svg', title: 'Add Wallet'),
-
+              _ServiceMethods(iconImage: 'wallet_icon.svg', title: 'Add Wallet', onTap: (){},),
             ],
           ),
         ),
@@ -51,9 +58,11 @@ class HomePage extends StatelessWidget {
 class _ServiceMethods extends StatelessWidget {
   final String iconImage;
   final String title;
+  final void Function() onTap;
   // final Function? onPressed;
   const _ServiceMethods({
     Key? key,
+    required this.onTap,
     required this.iconImage,
     required this.title,
     // this.onPressed,
@@ -61,24 +70,27 @@ class _ServiceMethods extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-          color: const Color(0xffF6F6F6),
-          // border: Border.all(
-          //   width: 0.1,
-          // ),
-          borderRadius: BorderRadius.circular(5)
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(12.0),
-        child: Row(
-          children: [
-            SvgPicture.asset(UIAssets.getSvg(iconImage),),
-            SBC.mW,
-            Text(title, style: Theme.of(context).textTheme.bodyText2,),
-            const Spacer(),
-            const Icon(Icons.arrow_forward, size: 15, color: Colors.black,)
-          ],
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+        decoration: BoxDecoration(
+            color: const Color(0xffF6F6F6),
+            // border: Border.all(
+            //   width: 0.1,
+            // ),
+            borderRadius: BorderRadius.circular(5)
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: Row(
+            children: [
+              SvgPicture.asset(UIAssets.getSvg(iconImage),),
+              SBC.mW,
+              Text(title, style: Theme.of(context).textTheme.bodyText2,),
+              const Spacer(),
+              const Icon(Icons.arrow_forward, size: 15, color: Colors.black,)
+            ],
+          ),
         ),
       ),
     );

@@ -11,17 +11,19 @@ import '../../../features/profile/presentation/profile_page.dart';
 @MaterialAutoRouter(
   replaceInRouteName: 'Page,Route',
   routes: <AutoRoute>[
-    AutoRoute(page: LocationPage, ),
-    AutoRoute(page: ParcelPage, initial: true,),
+    AutoRoute(page: LocationPage,),
+    AutoRoute(page: ParcelPage,),
     AutoRoute(
       page: LandingPage,
       path: '/landing',
+      initial: true,
       // name: 'landingRouter',
       children: [
         AutoRoute(
           name: 'homeRouter',
           path: '',
           page: HomePage,
+
         ),
         AutoRoute(name: 'walletRouter', path: 'search', page: WalletPage),
         AutoRoute(name: 'deliveryRouter', path: 'favorite', page: DeliveryPage),
