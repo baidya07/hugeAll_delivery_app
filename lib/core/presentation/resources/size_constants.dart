@@ -59,4 +59,7 @@ class SC {
 
   ///extra large Width(20)
   static const double xLW = 20;
+
+  ///for horizontal margin
+  static const double edgeGap = 20;
 }

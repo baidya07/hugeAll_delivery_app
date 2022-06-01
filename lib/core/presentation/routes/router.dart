@@ -1,7 +1,6 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:hugeall_delivery_app/features/splash/splash_screen1.dart';
-
 import '../../../features/ location/location.dart';
+import '../../../features/splash/splash_screen.dart';
 
 @MaterialAutoRouter(
   replaceInRouteName: 'Page,Route',
@@ -9,7 +8,7 @@ import '../../../features/ location/location.dart';
     AutoRoute(
       page: LocationPage,
     ),
-    AutoRoute(page: FirstSplashPage, initial: true),
+    AutoRoute(page: SplashPage, initial: true),
 
     // AutoRoute(
     //   path: 'profile',
