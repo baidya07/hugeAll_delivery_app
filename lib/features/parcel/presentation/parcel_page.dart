@@ -1,14 +1,11 @@
 
-
 import 'package:auto_route/auto_route.dart';
+import 'package:awesome_calendar/awesome_calendar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:hugeall_delivery_app/core/presentation/resources/colors.dart';
 import 'package:hugeall_delivery_app/core/presentation/resources/ui_assets.dart';
 import 'package:hugeall_delivery_app/core/presentation/widget/forms/buttons.dart';
 import 'package:timelines/timelines.dart';
-// import 'package:awesome_calendar/awesome_calendar.dart';
-
 import '../../../core/presentation/resources/size_constants.dart';
 import '../../../core/presentation/widget/forms/textfields.dart';
 
@@ -23,60 +20,108 @@ class ParcelPage extends StatefulWidget {
 }
 
 class _ParcelPageState extends State<ParcelPage> {
-
-
+  // DateTime initialDate = DateTime.now();
   DateTime? singleSelect;
-  DateTime embeddedCalendar = DateTime.now();
-  List<DateTime>? multiSelect;
-  List<DateTime>? rangeSelect;
-  List<DateTime>? multiOrRangeSelect;
+  // DateTime embeddedCalendar = DateTime.now();
+  // List<DateTime>? multiSelect;
+  // List<DateTime>? rangeSelect;
+  // List<DateTime>? multiOrRangeSelect;
+  //
+  // get myContext => null;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.white,
-        centerTitle: true,
-        title: Text(
-          'Pickup Location',
-          style: Theme.of(context).textTheme.bodyText1,
-        ),
-        leading: InkWell(
-            onTap: (){
-              context.router.pop();
-            },
-            child: const Icon(Icons.arrow_back_ios, color: Colors.black,)),
-      ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: SC.lW, vertical: SC.lH),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const _DeliveryWidget(),
-              SBC.xxLH,
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const _PickupTime(),
-                  Container(
-                    child: Text('Below is Calendar'),
-                  )
-                ],
-              ),
-              SBC.xxLH,
-              const _DeliveryInfo(),
-              SBC.xxLH,
-              PrimaryButton(onPressed: (){}, title: 'Confirm'),
-
-            ],
+        appBar: AppBar(
+          elevation: 0,
+          backgroundColor: Colors.white,
+          centerTitle: true,
+          title: Text(
+            'Pickup Location',
+            style: Theme
+                .of(context)
+                .textTheme
+                .bodyText1,
           ),
+          leading: InkWell(
+              onTap: () {
+                context.router.pop();
+              },
+              child: const Icon(Icons.arrow_back_ios, color: Colors.black,)),
         ),
-      )
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(
+                horizontal: SC.lW, vertical: SC.lH),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(
+                  child: Timeline.tileBuilder(
+                    padding: EdgeInsets.zero,
+                    physics: const NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    theme: TimelineThemeData(
+                      nodePosition: 0,
+                      connectorTheme: const ConnectorThemeData(
+                        thickness: 1.0,
+                        color: Colors.black,
+                      ),
+                    ),
+                    builder: TimelineTileBuilder.fromStyle(
+
+                      connectorStyle: ConnectorStyle.dashedLine,
+                      itemCount: 2,
+
+                      contentsAlign: ContentsAlign.alternating,
+                      contentsBuilder: (context, index) =>
+                      const Padding(
+                        padding: EdgeInsets.all(9.0),
+                        child: _DeliveryWidget(),
+                      ),
+                    ),
+                  ),
+                ),
+                SBC.xxLH,
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const _PickupTime(),
+                    SizedBox(
+                        child: ElevatedButton(
+                          onPressed: () => singleSelectPicker(),
+                          child: const Text('Choose Date'),
+                        ),
+                    ),
+                  ],
+                ),
+                SBC.xxLH,
+                const _DeliveryInfo(),
+                SBC.xxLH,
+                PrimaryButton(onPressed: () {}, title: 'Confirm'),
+              ],
+            ),
+          ),
+        )
     );
   }
-}
 
+  Future<void> singleSelectPicker() async {
+    final DateTime? picked = await showDialog<DateTime>(
+      context: context,
+      builder: (BuildContext context) {
+        return const AwesomeCalendarDialog(
+          selectionMode: SelectionMode.single,
+        );
+      },
+    );
+    if (picked != null) {
+      setState(() {
+        singleSelect = picked;
+      });
+    }
+  }
+}
 class _PickupTime extends StatelessWidget {
   const _PickupTime({
     Key? key,
@@ -162,24 +207,10 @@ class _DeliveryWidget extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        FixedTimeline(
-          children: [
-            Align(
-              alignment: Alignment.topLeft,
-              child: DotIndicator(
-                color: primaryColor,
-                position: 0,
-              ),
-            ),
-            Container(
-                child: const _TransferWidget(iconImage: 'delivered_icon.svg', title: 'Pickup',address: 'Jana Milap Galli, Vinayak Tole, Chabahail, Kathmandu',)),
-            SBC.xxLH,
-            const _TransferWidget(iconImage: 'drop_icon.svg', title: 'Drop Point',address: 'Newroad, Opposite NIC bank, Sundhara',),
-          ],
-        )
-
-      ],
-    );
+        const _TransferWidget(iconImage: 'delivered_icon.svg', title: 'Pickup',address: 'Jana Milap Galli, Vinayak Tole, Chabahail, Kathmandu',),
+        SBC.xxLH,
+        const _TransferWidget(iconImage: 'drop_icon.svg', title: 'Drop Point',address: 'Newroad, Opposite NIC bank, Sundhara',)
+    ]);
   }
 }
 
@@ -223,190 +254,7 @@ class _TransferWidget extends StatelessWidget {
   }
 }
 
-// class CustomCalendar extends StatefulWidget {
-//   const CustomCalendar({Key? key}) : super(key: key);
-//
-//   @override
-//   State<CustomCalendar> createState() => _CustomCalendarState();
-// }
 
-// class _CustomCalendarState extends State<CustomCalendar> {
-//   DateTime initialDate = DateTime.now();
-//
-//   DateTime? singleSelect;
-//   DateTime embeddedCalendar = DateTime.now();
-//   List<DateTime>? multiSelect;
-//   List<DateTime>? rangeSelect;
-//   List<DateTime>? multiOrRangeSelect;
-//   @override
-//   Widget build(BuildContext context) {
-//     return Center(
-//       child: Column(
-//         mainAxisAlignment: MainAxisAlignment.center,
-//         children: <Widget>[
-//           Text(singleSelect?.toString() ?? ''),
-//           ElevatedButton(
-//             onPressed: () => singleSelectPicker(),
-//             child: const Text('Single select picker'),
-//           ),
-//           const Padding(padding: EdgeInsets.only(top: 20)),
-//           Text(multiSelect?.toString() ?? ''),
-//           ElevatedButton(
-//             onPressed: () => multiSelectPicker(),
-//             child: const Text('Multi select picker'),
-//           ),
-//           const Padding(padding: EdgeInsets.only(top: 20)),
-//           Text(rangeSelect?.toString() ?? ''),
-//           ElevatedButton(
-//             onPressed: () => rangeSelectPicker(),
-//             child: const Text('Range select picker'),
-//           ),
-//           const Padding(padding: EdgeInsets.only(top: 20)),
-//           Text(multiOrRangeSelect?.toString() ?? ''),
-//           ElevatedButton(
-//             onPressed: () => multiOrRangeSelectPicker(),
-//             child: const Text('Range or Multi select picker'),
-//           ),
-//           const Padding(padding: EdgeInsets.only(top: 20)),
-//           ElevatedButton(
-//             onPressed: () => pickerWithTitle(),
-//             child: const Text('Picker with title widget'),
-//           ),
-//           const Padding(padding: EdgeInsets.only(top: 20)),
-//           ElevatedButton(
-//             onPressed: () => pickerWithCustomDateRange(),
-//             child: const Text('Picker with custom date range'),
-//           ),
-//           const Padding(padding: EdgeInsets.only(top: 20)),
-//           const Text('Embedded calendar (single select):'),
-//           Text(embeddedCalendar.toString()),
-//           AwesomeCalendar(
-//             selectedSingleDate: embeddedCalendar,
-//             onTap: (DateTime date) {
-//               setState(() {
-//                 embeddedCalendar = date;
-//               });
-//             },
-//           ),
-//           const Padding(padding: EdgeInsets.only(top: 20)),
-//           const Text('Custom colors Embedded calendar (single select):'),
-//           AwesomeCalendar(
-//             selectedSingleDate: DateTime.now(),
-//             dayTileBuilder: CustomDayTileBuilder(),
-//           ),
-//         ],
-//       ),
-//     );
-//   }
-//
-// Future<void> singleSelectPicker() async {
-//   final DateTime? picked = await showDialog<DateTime>(
-//     context: context,
-//     builder: (BuildContext context) {
-//       return const AwesomeCalendarDialog(
-//         selectionMode: SelectionMode.single,
-//       );
-//     },
-//   );
-//   if (picked != null) {
-//     setState(() {
-//       singleSelect = picked;
-//     });
-//   }
-// }
-//
-// Future<void> multiSelectPicker() async {
-//   final List<DateTime>? picked = await showDialog<List<DateTime>>(
-//     context: context,
-//     builder: (BuildContext context) {
-//       return const AwesomeCalendarDialog(
-//         selectionMode: SelectionMode.multi,
-//       );
-//     },
-//   );
-//   if (picked != null) {
-//     setState(() {
-//       multiSelect = picked;
-//     });
-//   }
-// }
-//
-// Future<void> rangeSelectPicker() async {
-//   final List<DateTime>? picked = await showDialog<List<DateTime>>(
-//     context: context,
-//     builder: (BuildContext context) {
-//       return const AwesomeCalendarDialog(
-//         selectionMode: SelectionMode.range,
-//       );
-//     },
-//   );
-//   if (picked != null) {
-//     setState(() {
-//       rangeSelect = picked;
-//     });
-//   }
-// }
-//
-// Future<void> multiOrRangeSelectPicker() async {
-//   final List<DateTime>? picked = await showDialog<List<DateTime>>(
-//     context: context,
-//     builder: (BuildContext context) {
-//       return const AwesomeCalendarDialog(
-//         selectionMode: SelectionMode.multi,
-//         canToggleRangeSelection: true,
-//       );
-//     },
-//   );
-//   if (picked != null) {
-//     setState(() {
-//       multiOrRangeSelect = picked;
-//     });
-//   }
-// }
-//
-// Future<void> pickerWithTitle() async {
-//   await showDialog<DateTime>(
-//     context: context,
-//     builder: (BuildContext context) {
-//       return const AwesomeCalendarDialog(
-//         selectionMode: SelectionMode.single,
-//         title: Padding(
-//           padding: EdgeInsets.all(16),
-//           child: Text('This is a custom title'),
-//         ),
-//       );
-//     },
-//   );
-// }
-//
-// Future<void> pickerWithCustomDateRange() async {
-//   await showDialog<DateTime>(
-//     context: context,
-//     builder: (BuildContext context) {
-//       return AwesomeCalendarDialog(
-//         selectionMode: SelectionMode.single,
-//         startDate: DateTime(2022),
-//         endDate: DateTime(2022, 12),
-//       );
-//     },
-//   );
-// }
-// }
-
-// class CustomDayTileBuilder extends DayTileBuilder {
-//   CustomDayTileBuilder();
-//
-//   @override
-//   Widget build(BuildContext context, DateTime date,
-//       void Function(DateTime datetime)? onTap) {
-//     return DefaultDayTile(
-//       date: date,
-//       onTap: onTap,
-//       selectedDayColor: Colors.cyan,
-//       currentDayBorderColor: Colors.grey,
-//     );
-//   }
-//   }
 
 
 
