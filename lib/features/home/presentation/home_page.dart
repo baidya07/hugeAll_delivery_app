@@ -52,7 +52,7 @@ class HomePage extends StatelessWidget {
               ),
               SBC.lH,
               _ServiceMethods(
-                iconImage: 'parcel_icon.svg',
+                iconImage: 'parcel_icon.png',
                 title: 'Send Parcel',
                 onTap: () {
                   context.router.navigate(const ParcelRoute());
@@ -60,13 +60,13 @@ class HomePage extends StatelessWidget {
               ),
               SBC.lH,
               _ServiceMethods(
-                iconImage: 'track_order_icon.svg',
+                iconImage: 'track_icon.png',
                 title: 'Track Order',
                 onTap: () {},
               ),
               SBC.lH,
               _ServiceMethods(
-                iconImage: 'wallet_icon.svg',
+                iconImage: 'wallet_icon.png',
                 title: 'Add Wallet',
                 onTap: () {},
               ),
@@ -106,9 +106,9 @@ class _ServiceMethods extends StatelessWidget {
           padding: const EdgeInsets.all(12.0),
           child: Row(
             children: [
-              SvgPicture.asset(
-                UIAssets.getSvg(iconImage),
-              ),
+               SizedBox(
+                height: 50,
+                  child: Image.asset(UIAssets.getImage(iconImage,),)),
               SBC.mW,
               Text(
                 title,
@@ -190,7 +190,7 @@ class _LocationButton extends StatelessWidget {
               style: Theme.of(context).textTheme.bodyText2,
             ),
             const Spacer(),
-            const Icon(Icons.arrow_forward_ios, color: Colors.black, size: 15),
+            const Icon(Icons.arrow_forward_ios, color: Colors.black, size: 12),
           ],
         ),
       ),

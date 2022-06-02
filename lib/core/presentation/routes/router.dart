@@ -1,6 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:hugeall_delivery_app/features/auth/fp_page/forgot_password_page.dart';
-
+import '../../../features/auth/forgot password/forgot_password_page.dart';
 import '../../../features/auth/login_page.dart';
 import '../../../features/splash/splash_screen.dart';
 import 'package:hugeall_delivery_app/features/wallet/presentation/wallet_page.dart';

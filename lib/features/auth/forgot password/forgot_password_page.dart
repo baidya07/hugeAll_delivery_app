@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hugeall_delivery_app/core/presentation/resources/size_constants.dart';
-import 'package:hugeall_delivery_app/features/auth/fp_page/email_page.dart';
-import 'package:hugeall_delivery_app/features/auth/fp_page/number_page.dart';
 import 'package:hugeall_delivery_app/features/button/buttons.dart';
+import './number_page.dart';
+import 'email_page.dart';
 
 class ForgotPasswordPage extends StatefulWidget {
   const ForgotPasswordPage({Key? key}) : super(key: key);
@@ -39,7 +39,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage>
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Icon(
+              const Icon(
                 Icons.close_outlined,
                 color: Colors.black,
               ),
@@ -78,7 +78,10 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage>
               Expanded(
                 child: TabBarView(
                     controller: _controller,
-                    children: [NumberPage(), EmailPage()]),
+                    children: const [
+                      NumberPage(),
+                      EmailPage()
+                    ]),
               ),
               ButtonWidget(title: 'send'),
             ],

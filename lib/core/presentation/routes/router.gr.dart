@@ -15,7 +15,8 @@ import 'package:flutter/material.dart' as _i12;
 
 import '../../../features/%20location/presentation/location_enable_page.dart'
     as _i3;
-import '../../../features/auth/fp_page/forgot_password_page.dart' as _i2;
+import '../../../features/auth/forgot%20password/forgot_password_page.dart'
+    as _i2;
 import '../../../features/auth/login_page.dart' as _i5;
 import '../../../features/delivery/presentation/directory_page.dart' as _i9;
 import '../../../features/home/presentation/home_page.dart' as _i7;

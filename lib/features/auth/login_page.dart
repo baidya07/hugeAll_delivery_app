@@ -1,9 +1,6 @@
-import 'package:auto_route/annotations.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hugeall_delivery_app/core/presentation/resources/size_constants.dart';
-import 'package:hugeall_delivery_app/core/presentation/resources/ui_assets.dart';
 import 'package:hugeall_delivery_app/core/presentation/routes/router.gr.dart';
 
 class LoginPage extends StatefulWidget {
@@ -111,7 +108,7 @@ class _LoginPageState extends State<LoginPage> {
                           maximumSize: const Size(330, 50),
                           minimumSize: const Size(330, 50)),
                       onPressed: () {
-                        context.router.navigate(const LandingRoute());
+                        context.router.navigate(const LocationRoute());
                       },
                       child: const Text('Login')),
                 ),

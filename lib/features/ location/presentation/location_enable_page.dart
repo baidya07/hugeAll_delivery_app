@@ -21,14 +21,14 @@ class LocationPage extends StatelessWidget {
             children: [
               PrimaryOutlinedButton(
                 onPressed: () {
-                  context.router.navigate(const HomeRoute());
+                  context.router.navigate(const LandingRoute());
                 },
                 title: 'Skip',
                 width: 160,
               ),
               PrimaryButton(
                 onPressed: () {
-                  context.router.navigate(const HomeRoute());
+                  context.router.navigate(const LandingRoute());
                 },
                 title: 'Use Location',
                 width: 160,
