@@ -63,55 +63,83 @@ class _SplashPageState extends State<SplashPage> {
                   })),
         ),
         bottomNavigationBar: (indexCount <= 2)
-            ? Padding(
-                padding: const EdgeInsets.fromLTRB(11.0, 0, 11.0, 10),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    DotsIndicator(
-                      dotsCount: itemList.length,
-                      position: _currentPosition.toDouble(),
-                      decorator: DotsDecorator(
-                          shape: const CircleBorder(),
-                          size: const Size(SC.mH, SC.mW),
-                          color: const Color.fromARGB(255, 212, 212, 212),
-                          activeColor: primaryColor,
-                          activeSize: const Size(SC.mH, SC.mW)),
-                    ),
-                    PrimaryButton(
-                      onPressed: () {
-                        _controller.nextPage();
-                      },
-                      title: "Next",
-                      width: 100,
-                      radius: 7,
-                    )
-                  ],
-                ),
-              )
-            : Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15.0),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    PrimaryButton(
-                      onPressed: () {
-                        context.router.navigate(const LoginRoute());
-                      },
-                      title: "Sign up",
-                      width: 350,
-                    ),
-                    SBC.sH,
-                    PrimaryOutlinedButton(
-                      onPressed: () {},
-                      title: "Login",
-                      width: 350,
-                      color: const Color.fromARGB(255, 10, 82, 225),
-                    ),
-                    SBC.mH
-                  ],
-                ),
-              ));
+            ? _BottomWidget(controller: _controller)
+            : const _Buttons());
+  }
+}
+
+class _Buttons extends StatelessWidget {
+  const _Buttons({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 15.0),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          PrimaryButton(
+            onPressed: () {
+              context.router.navigate(const LoginRoute());
+            },
+            title: "Sign up",
+            width: 350,
+          ),
+          SBC.sH,
+          PrimaryOutlinedButton(
+            onPressed: () {
+              context.router.navigate(const LoginRoute());
+            },
+            title: "Login",
+            width: 350,
+            color: const Color.fromARGB(255, 10, 82, 225),
+          ),
+          SBC.mH
+        ],
+      ),
+    );
+  }
+}
+
+class _BottomWidget extends StatelessWidget {
+  const _BottomWidget({
+    Key? key,
+    required CarouselController controller,
+  })  : _controller = controller,
+        super(key: key);
+
+  final CarouselController _controller;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(11.0, 0, 11.0, 10),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          DotsIndicator(
+            dotsCount: itemList.length,
+            position: _currentPosition.toDouble(),
+            decorator: DotsDecorator(
+                shape: const CircleBorder(),
+                size: const Size(SC.mH, SC.mW),
+                color: const Color.fromARGB(255, 212, 212, 212),
+                activeColor: primaryColor,
+                activeSize: const Size(SC.mH, SC.mW)),
+          ),
+          PrimaryButton(
+            onPressed: () {
+              _controller.nextPage();
+            },
+            title: "Next",
+            width: 100,
+            radius: 7,
+          )
+        ],
+      ),
+    );
   }
 }
 

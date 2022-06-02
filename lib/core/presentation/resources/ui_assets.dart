@@ -1,5 +1,5 @@
 class UIAssets {
-  //image directory
+  //image delivery
   static const imageDir = "assets/images/";
 
 //app launcher and splash icons
@@ -9,13 +9,13 @@ class UIAssets {
   static const productPlaceholder = "${imageDir}product_placeholder.jpg";
   // static const introImage2 = "${imageDir}intro_screen_2.svg";
 
-  //svg asset directory
+  //svg asset delivery
   static const svgDir = "assets/svg/";
 
   static const mobileVerificationBG = "assets/svg/mobile_verification_bg.svg";
 
 
-  //svg login asset directory
+  //svg login asset delivery
   static const svgBgDirLogin = "assets/svg/login_bg_asset/";
   static const svgBgDirSplash = "assets/svg/splash_bg_asset/";
 

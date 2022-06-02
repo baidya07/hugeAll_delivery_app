@@ -4,9 +4,9 @@ class AppColors {
   static Color primaryColor(double opacity) {
     try {
       // return Color(int.parse(settingRepo.setting.value.mainColor.replaceAll("#", "0xFF"))).withOpacity(opacity);
-      return const Color(0xFF01B051).withOpacity(opacity);
+      return const Color(0xFF640293).withOpacity(opacity);
     } catch (e) {
-      return const Color(0xFF01B051).withOpacity(opacity);
+      return const Color(0xFF640293).withOpacity(opacity);
     }
   }
 
@@ -31,9 +31,9 @@ class AppColors {
   static Color primaryDarkColor(double opacity) {
     try {
       // return Color(int.parse(settingRepo.setting.value.mainColor.replaceAll("#", "0xFF"))).withOpacity(opacity);
-      return const Color(0xFF059B4A);
+      return const Color(0xFF640293);
     } catch (e) {
-      return const Color(0xFF059B4A).withOpacity(opacity);
+      return const Color(0xFF640293).withOpacity(opacity);
     }
   }
 

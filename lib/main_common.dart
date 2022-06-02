@@ -36,8 +36,8 @@ Future<void> mainCommon() async {
 // }
 //
 // Future _initializeHive() async {
-//   final directory = await getApplicationDocumentsDirectory();
-//   Hive.init(directory.path);
+//   final delivery = await getApplicationDocumentsDirectory();
+//   Hive.init(delivery.path);
 //   //opening small boxes to synchronously fetch some important values
 //   // await Hive.openBox(DbConstants.userProfileBox); // opening user information
 // }

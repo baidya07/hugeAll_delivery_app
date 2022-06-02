@@ -15,7 +15,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  bool _value = false;
+  bool? value = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -80,22 +80,25 @@ class _LoginPageState extends State<LoginPage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Row(
-                      // mainAxisAlignment: MainAxisAlignment.start,
-                      // crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Container(
-                          color: Colors.red,
+                        SizedBox(
+                          height: 38,
+                          width: 22,
                           child: Checkbox(
-                            visualDensity: VisualDensity(horizontal: 1),
+                            value: this.value,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(4)),
+                            visualDensity: VisualDensity.compact,
                             side: const BorderSide(color: Colors.grey),
                             onChanged: (value) {
                               setState(() {
-                                value = _value;
+                                this.value = value;
                               });
                             },
-                            value: false,
+                            // value: false,
                           ),
                         ),
+                        SBC.mW,
                         const Text('Remember me'),
                       ],
                     ),
@@ -114,7 +117,15 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 SBC.xxLH,
                 Center(
-                  child: PrimaryButton(onPressed: () {}, title: 'Login'),
+                  child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          primary: const Color(0xff640293),
+                          maximumSize: const Size(330, 50),
+                          minimumSize: const Size(330, 50)),
+                      onPressed: () {
+                        context.router.navigate(const LandingRoute());
+                      },
+                      child: const Text('Login')),
                 ),
               ],
             ),
