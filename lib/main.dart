@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'main_common.dart';
 
-Future<void> main() async{
+Future<void> main() async {
   await mainCommon();
 
-  runApp(
-      const Application()
-  );
+  runApp(const Application());
 }

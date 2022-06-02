@@ -14,39 +14,62 @@ class HomePage extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: SC.lW, vertical: SC.lH),
+          padding:
+              const EdgeInsets.symmetric(horizontal: SC.lW, vertical: SC.lH),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Your Location', style: Theme.of(context).textTheme.bodyText2,),
+              Text(
+                'Your Location',
+                style: Theme.of(context).textTheme.bodyText2,
+              ),
               SBC.mH,
               const _LocationButton(),
               SBC.xxLH,
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text('Hello Suzen!', style: Theme.of(context).textTheme.headline6,),
-                  SvgPicture.asset(UIAssets.getSvg('notification_icon.svg'),),
+                  Text(
+                    'Hello Suzen!',
+                    style: Theme.of(context).textTheme.headline6,
+                  ),
+                  SvgPicture.asset(
+                    UIAssets.getSvg('notification_icon.svg'),
+                  ),
                 ],
               ),
               SBC.lH,
-              Text('Where are you sending your package to?', style: Theme.of(context).textTheme.bodyText2,),
+              Text(
+                'Where are you sending your package to?',
+                style: Theme.of(context).textTheme.bodyText2,
+              ),
               SBC.xxLH,
               const _SearchButton(),
               SBC.xxLH,
-              Text('Our Service', style: Theme.of(context).textTheme.bodyText2,),
+              Text(
+                'Our Service',
+                style: Theme.of(context).textTheme.bodyText2,
+              ),
               SBC.lH,
               _ServiceMethods(
                 iconImage: 'parcel_icon.svg',
                 title: 'Send Parcel',
-                onTap: (){
+                onTap: () {
                   context.router.navigate(const ParcelRoute());
-                  },
+                },
               ),
               SBC.lH,
-              _ServiceMethods(iconImage: 'track_order_icon.svg', title: 'Track Order', onTap: (){},),
+              _ServiceMethods(
+                iconImage: 'track_order_icon.svg',
+                title: 'Track Order',
+                onTap: () {},
+              ),
               SBC.lH,
-              _ServiceMethods(iconImage: 'wallet_icon.svg', title: 'Add Wallet', onTap: (){},),
+              _ServiceMethods(
+                iconImage: 'wallet_icon.svg',
+                title: 'Add Wallet',
+                onTap: () {},
+              ),
             ],
           ),
         ),
@@ -78,17 +101,25 @@ class _ServiceMethods extends StatelessWidget {
             // border: Border.all(
             //   width: 0.1,
             // ),
-            borderRadius: BorderRadius.circular(5)
-        ),
+            borderRadius: BorderRadius.circular(5)),
         child: Padding(
           padding: const EdgeInsets.all(12.0),
           child: Row(
             children: [
-              SvgPicture.asset(UIAssets.getSvg(iconImage),),
+              SvgPicture.asset(
+                UIAssets.getSvg(iconImage),
+              ),
               SBC.mW,
-              Text(title, style: Theme.of(context).textTheme.bodyText2,),
+              Text(
+                title,
+                style: Theme.of(context).textTheme.bodyText2,
+              ),
               const Spacer(),
-              const Icon(Icons.arrow_forward, size: 15, color: Colors.black,)
+              const Icon(
+                Icons.arrow_forward,
+                size: 15,
+                color: Colors.black,
+              )
             ],
           ),
         ),
@@ -106,21 +137,25 @@ class _SearchButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: const Color(0xffF4F7FB),
+          color: const Color(0xffF4F7FB),
           // border: Border.all(
           //   width: 0.1,
           // ),
-          borderRadius: BorderRadius.circular(5)
-      ),
+          borderRadius: BorderRadius.circular(5)),
       child: Padding(
         padding: const EdgeInsets.all(12.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             SBC.mW,
-            SvgPicture.asset(UIAssets.getSvg('search_icon.svg'),),
+            SvgPicture.asset(
+              UIAssets.getSvg('search_icon.svg'),
+            ),
             SBC.mW,
-            Text('Enter your Package Destination', style: Theme.of(context).textTheme.caption,),
+            Text(
+              'Enter your Package Destination',
+              style: Theme.of(context).textTheme.caption,
+            ),
           ],
         ),
       ),
@@ -137,12 +172,11 @@ class _LocationButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        border: Border.all(
-           color: const Color(0xff374253),
+          border: Border.all(
+            color: const Color(0xff374253),
             width: 0.6,
-        ),
-        borderRadius: BorderRadius.circular(12)
-      ),
+          ),
+          borderRadius: BorderRadius.circular(12)),
       child: Padding(
         padding: const EdgeInsets.all(12.0),
         child: Row(
@@ -151,7 +185,10 @@ class _LocationButton extends StatelessWidget {
             SBC.mW,
             const Icon(Icons.location_on_outlined, color: Colors.red, size: 15),
             SBC.mW,
-            Text('Chabahil, Kathmandu...', style: Theme.of(context).textTheme.bodyText2,),
+            Text(
+              'Chabahil, Kathmandu...',
+              style: Theme.of(context).textTheme.bodyText2,
+            ),
             const Spacer(),
             const Icon(Icons.arrow_forward_ios, color: Colors.black, size: 15),
           ],
