@@ -77,8 +77,8 @@ class _LoginPageState extends State<LoginPage> {
                     Row(
                       children: [
                         SizedBox(
-                          height: 30,
-                          width: 24,
+                          height: 38,
+                          width: 22,
                           child: Checkbox(
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(4)),
