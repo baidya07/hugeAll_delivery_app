@@ -75,18 +75,24 @@ class _LoginPageState extends State<LoginPage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Row(
-                      // mainAxisAlignment: MainAxisAlignment.start,
-                      // crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Checkbox(
-                          side: const BorderSide(color: Colors.grey),
-                          onChanged: (value) {
-                            setState(() {
-                              value = _value;
-                            });
-                          },
-                          value: false,
+                        SizedBox(
+                          height: 30,
+                          width: 24,
+                          child: Checkbox(
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(4)),
+                            visualDensity: VisualDensity.compact,
+                            side: const BorderSide(color: Colors.grey),
+                            onChanged: (value) {
+                              setState(() {
+                                value = _value;
+                              });
+                            },
+                            value: false,
+                          ),
                         ),
+                        SBC.mW,
                         const Text('Remember me'),
                       ],
                     ),
