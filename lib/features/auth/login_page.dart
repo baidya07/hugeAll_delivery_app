@@ -14,7 +14,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  bool _value = false;
+  bool? value = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -80,16 +80,17 @@ class _LoginPageState extends State<LoginPage> {
                           height: 38,
                           width: 22,
                           child: Checkbox(
+                            value: this.value,
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(4)),
                             visualDensity: VisualDensity.compact,
                             side: const BorderSide(color: Colors.grey),
                             onChanged: (value) {
                               setState(() {
-                                value = _value;
+                                this.value = value;
                               });
                             },
-                            value: false,
+                            // value: false,
                           ),
                         ),
                         SBC.mW,
@@ -98,7 +99,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     InkWell(
                       onTap: () {
-                        context.router.push(ForgotPasswordRoute());
+                        context.router.push(const ForgotPasswordRoute());
                       },
                       child: Text(
                         'Forgot Password?',
