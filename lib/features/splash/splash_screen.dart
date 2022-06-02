@@ -124,7 +124,7 @@ class _BodyText extends StatelessWidget {
     return Text(
       title,
       style: Theme.of(context).textTheme.subtitle2!.copyWith(
-          color: const Color.fromARGB(255, 123, 122, 122), height: 1.6),
+          color: const Color.fromARGB(255, 167, 167, 167), height: 1.6),
     );
   }
 }

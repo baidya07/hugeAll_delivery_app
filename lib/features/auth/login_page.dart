@@ -5,6 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hugeall_delivery_app/core/presentation/resources/size_constants.dart';
 import 'package:hugeall_delivery_app/core/presentation/resources/ui_assets.dart';
 import 'package:hugeall_delivery_app/core/presentation/routes/router.gr.dart';
+import 'package:hugeall_delivery_app/core/presentation/widget/forms/buttons.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -18,11 +19,11 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: _BottomWidget(),
+      bottomNavigationBar: const _BottomWidget(),
       body: SingleChildScrollView(
         child: SafeArea(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 25),
             child: Column(
               children: [
                 Column(
@@ -57,17 +58,21 @@ class _LoginPageState extends State<LoginPage> {
                       style: Theme.of(context).textTheme.bodyText2?.copyWith(
                           color: Colors.black, fontWeight: FontWeight.w500),
                     ),
-                    TextFormField(),
                     SBC.lH,
+                    TextFormField(),
+                    SBC.xxLH,
                     Text(
                       'Password',
                       style: Theme.of(context).textTheme.bodyText2?.copyWith(
                           color: Colors.black, fontWeight: FontWeight.w500),
                     ),
+                    SBC.lH,
                     TextFormField(
                       obscureText: true,
                       decoration: const InputDecoration(
-                          suffixIcon: Icon(Icons.visibility_outlined)),
+                          suffixIcon: Icon(Icons.visibility_outlined),
+                          border: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.grey))),
                     ),
                   ],
                 ),
@@ -78,21 +83,25 @@ class _LoginPageState extends State<LoginPage> {
                       // mainAxisAlignment: MainAxisAlignment.start,
                       // crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Checkbox(
-                          side: const BorderSide(color: Colors.grey),
-                          onChanged: (value) {
-                            setState(() {
-                              value = _value;
-                            });
-                          },
-                          value: false,
+                        Container(
+                          color: Colors.red,
+                          child: Checkbox(
+                            visualDensity: VisualDensity(horizontal: 1),
+                            side: const BorderSide(color: Colors.grey),
+                            onChanged: (value) {
+                              setState(() {
+                                value = _value;
+                              });
+                            },
+                            value: false,
+                          ),
                         ),
                         const Text('Remember me'),
                       ],
                     ),
                     InkWell(
                       onTap: () {
-                        context.router.push(ForgotPasswordRoute());
+                        context.router.push(const ForgotPasswordRoute());
                       },
                       child: Text(
                         'Forgot Password?',
@@ -105,13 +114,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 SBC.xxLH,
                 Center(
-                  child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          primary: const Color(0xff640293),
-                          maximumSize: const Size(330, 50),
-                          minimumSize: const Size(330, 50)),
-                      onPressed: () {},
-                      child: const Text('Login')),
+                  child: PrimaryButton(onPressed: () {}, title: 'Login'),
                 ),
               ],
             ),
@@ -129,23 +132,26 @@ class _BottomWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text(
-          'Dont have an account?',
-          style: Theme.of(context)
-              .textTheme
-              .bodyText2
-              ?.copyWith(color: Colors.black, fontWeight: FontWeight.w500),
-        ),
-        SBC.sW,
-        Text(
-          'Create now',
-          style: Theme.of(context).textTheme.bodyText2?.copyWith(
-              color: const Color(0xff144FFF), fontWeight: FontWeight.w500),
-        ),
-      ],
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 25.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            'Dont have an account?',
+            style: Theme.of(context)
+                .textTheme
+                .bodyText2
+                ?.copyWith(color: Colors.black, fontWeight: FontWeight.w500),
+          ),
+          SBC.sW,
+          Text(
+            'Create now',
+            style: Theme.of(context).textTheme.bodyText2?.copyWith(
+                color: const Color(0xff144FFF), fontWeight: FontWeight.w500),
+          ),
+        ],
+      ),
     );
   }
 }

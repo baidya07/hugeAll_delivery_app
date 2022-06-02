@@ -89,6 +89,7 @@ dependencies:
   carousel_slider: ^4.1.1
   dots_indicator: ^2.1.0
   intl_phone_field: ^3.1.0
+  
 
 dev_dependencies:
   flutter_test:
@@ -131,6 +132,7 @@ flutter:
   assets:
     - assets/images/
     - assets/svg/
+    - assets/pdf/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

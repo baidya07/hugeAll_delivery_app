@@ -34,12 +34,12 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage>
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+          padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 25),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Icon(
+              const Icon(
                 Icons.close_outlined,
                 color: Colors.black,
               ),
@@ -48,18 +48,19 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage>
                 child: Text(
                   'Forgot Password',
                   style: Theme.of(context).textTheme.headline5?.copyWith(
-                      color: Colors.black, fontWeight: FontWeight.w700),
-                  textAlign: TextAlign.center,
+                      color: Colors.black, fontWeight: FontWeight.w500),
                 ),
               ),
               SBC.xxLH,
-              Text(
-                'Please enter your phone number, we’ll send a tempoary password',
-                textAlign: TextAlign.center,
-                style: Theme.of(context)
-                    .textTheme
-                    .bodyText2
-                    ?.copyWith(color: Colors.grey, fontWeight: FontWeight.w500),
+              Center(
+                child: Text(
+                  'Please enter your phone number, we’ll\nsend a temporary password',
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.bodyText2?.copyWith(
+                      color: Colors.grey,
+                      fontWeight: FontWeight.w400,
+                      height: 1.5),
+                ),
               ),
               SBC.xxLH,
               TabBar(
@@ -75,12 +76,13 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage>
                       text: 'Email',
                     ),
                   ]),
+              SBC.xLH,
               Expanded(
                 child: TabBarView(
                     controller: _controller,
-                    children: [NumberPage(), EmailPage()]),
+                    children: const [NumberPage(), EmailPage()]),
               ),
-              ButtonWidget(title: 'send'),
+              ButtonWidget(title: 'Send'),
             ],
           ),
         ),

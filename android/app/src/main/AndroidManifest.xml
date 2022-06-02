@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.hugeall_delivery_app">
+
    <application
         android:label="hugeall_delivery_app"
         android:name="${applicationName}"

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hugeall_delivery_app/core/presentation/resources/size_constants.dart';
 import 'package:hugeall_delivery_app/features/button/buttons.dart';
 
 class EmailPage extends StatelessWidget {
@@ -21,6 +22,7 @@ class EmailPage extends StatelessWidget {
                     .bodyText2
                     ?.copyWith(fontWeight: FontWeight.w500),
               ),
+              SBC.lH,
               const TextField(
                   // decoration: InputDecoration(
                   //     border: OutlineInputBorder(
