@@ -87,7 +87,9 @@ class _ParcelPageState extends State<ParcelPage> {
                       const _PickupTime(),
                       //todo: put calendar here
                       CalendarDatePicker2(
-                        config: CalendarDatePicker2Config(),
+                        config: CalendarDatePicker2Config(
+                          calendarType: CalendarDatePicker2Type.range,
+                        ),
                         initialValue: [],
                       ),
                     ],
