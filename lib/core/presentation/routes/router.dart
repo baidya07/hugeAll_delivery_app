@@ -45,11 +45,6 @@ import '../../../features/profile/presentation/profile_page.dart';
         // ),
       ],
     ),
-
-    // AutoRoute(
-    //   path: 'profile',
-    //   page: ProfilePage,
-    // ),
   ],
 )
 class $AppRouter {}

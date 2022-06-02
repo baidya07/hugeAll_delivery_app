@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hugeall_delivery_app/core/presentation/resources/size_constants.dart';
 import 'package:hugeall_delivery_app/features/button/buttons.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 
@@ -27,6 +28,7 @@ class _NumberPageState extends State<NumberPage> {
                   .bodyText2
                   ?.copyWith(fontWeight: FontWeight.w500),
             ),
+            SBC.lH,
             IntlPhoneField(
               flagsButtonPadding: const EdgeInsets.only(left: 10),
               dropdownIcon: const Icon(

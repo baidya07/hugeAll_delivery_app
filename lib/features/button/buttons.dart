@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hugeall_delivery_app/core/presentation/widget/forms/buttons.dart';
 
 class ButtonWidget extends StatelessWidget {
   String title;
@@ -10,13 +11,7 @@ class ButtonWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: ElevatedButton(
-          style: ElevatedButton.styleFrom(
-              primary: const Color(0xff640293),
-              maximumSize: const Size(330, 50),
-              minimumSize: const Size(330, 50)),
-          onPressed: () {},
-          child: Text(title)),
+      child: PrimaryButton(onPressed: () {}, title: title),
     );
   }
 }
