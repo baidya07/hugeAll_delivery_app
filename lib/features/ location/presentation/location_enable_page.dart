@@ -79,6 +79,7 @@ class LocationPage extends StatelessWidget {
           ],
         ),
       ),
+     ShimmerView();
     );
   }
 }

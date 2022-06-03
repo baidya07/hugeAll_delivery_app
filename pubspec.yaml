@@ -135,7 +135,7 @@ flutter:
   assets:
     - assets/images/
     - assets/svg/
-#    - assets/images/
+    - assets/gif/
 #    - assets/images/dummy_images/
     - assets/.env
 
