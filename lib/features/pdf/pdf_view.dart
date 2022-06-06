@@ -1,23 +1,21 @@
 // import 'dart:io';
-
+//
+// import 'package:auto_route/auto_route.dart';
 // import 'package:flutter/material.dart';
 // import 'package:flutter/services.dart';
-// import 'package:hugeall_delivery_app/core/presentation/routes/router.gr.dart';
-// import 'package:hugeall_delivery_app/core/presentation/widget/forms/buttons.dart';
 // import 'package:path_provider/path_provider.dart';
 // import 'package:flutter_pdfview/flutter_pdfview.dart';
-// import 'package:auto_route/auto_route.dart';
-
+//
 // class PDFViewPage extends StatefulWidget {
 //   const PDFViewPage({Key? key}) : super(key: key);
-
+//
 //   @override
 //   State<PDFViewPage> createState() => _PDFViewPageState();
 // }
-
+//
 // class _PDFViewPageState extends State<PDFViewPage> {
 //   String assetPDFPath = '';
-
+//
 //   @override
 //   void initState() {
 //     // TODO: implement initState
@@ -29,7 +27,7 @@
 //       });
 //     });
 //   }
-
+//
 //   Future<File> getFileFromAsset(String asset) async {
 //     try {
 //       var data = await rootBundle.load(asset);
@@ -42,7 +40,7 @@
 //       throw Exception('Error loading ');
 //     }
 //   }
-
+//
 //   @override
 //   Widget build(BuildContext context) {
 //     return Scaffold(
@@ -64,15 +62,15 @@
 //     );
 //   }
 // }
-
+//
 // class PDFScreen extends StatefulWidget {
 //   final String? path;
 //   const PDFScreen({Key? key, this.path}) : super(key: key);
-
+//
 //   @override
 //   State<PDFScreen> createState() => _PDFScreenState();
 // }
-
+//
 // class _PDFScreenState extends State<PDFScreen> {
 //   int _totalPage = 0;
 //   int _currentPage = 0;
@@ -82,7 +80,7 @@
 //   Widget build(BuildContext context) {
 //     return Scaffold(
 //       appBar: AppBar(
-//         title: Text('Document'),
+//         title: const Text('Document'),
 //       ),
 //       body: Stack(
 //         children: [

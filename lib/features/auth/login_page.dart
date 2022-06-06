@@ -2,7 +2,6 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:hugeall_delivery_app/core/presentation/resources/size_constants.dart';
 import 'package:hugeall_delivery_app/core/presentation/routes/router.gr.dart';
-import 'package:hugeall_delivery_app/core/presentation/widget/forms/buttons.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);

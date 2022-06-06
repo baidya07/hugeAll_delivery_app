@@ -35,6 +35,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   flutter_svg: any
+  flutter_pdfview: ^1.2.1
 
   #  Vector design and runtime animation for Flutter.
   flare_flutter: ^3.0.2
@@ -136,6 +137,7 @@ flutter:
     - assets/images/
     - assets/svg/
     - assets/gif/
+    - assets/pdf/
 #    - assets/images/dummy_images/
     - assets/.env
 
