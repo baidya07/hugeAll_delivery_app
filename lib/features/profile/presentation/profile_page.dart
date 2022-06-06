@@ -58,7 +58,7 @@ class _ProfilePageState extends State<ProfilePage> {
         padding: const EdgeInsets.symmetric(horizontal: SC.mW, vertical: SC.mH),
         child: Column(
           children: [
-            const SizedBox(height: 50,),
+            const SizedBox(height: 30,),
              const SizedBox(
                height: 200,
                child: CircularAvatar(
@@ -76,9 +76,13 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
               );
             },),
+            SBC.mH,
             _ProfileTiles(title: 'Privacy & Policy', onTap: (){},),
+            SBC.mH,
             _ProfileTiles(title: 'Refund & Return', onTap: (){},),
+            SBC.mH,
             _ProfileTiles(title: 'Terms & Conditions', onTap: (){},),
+            SBC.mH,
             _ProfileTiles(title: 'Agreement', onTap: (){},),
           ],
         ),
@@ -101,27 +105,38 @@ class _ProfileTiles extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onTap,
-      child: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      child: SingleChildScrollView(
+        child: Container(
+          padding: EdgeInsets.symmetric(vertical: SC.sH),
+          decoration: BoxDecoration(
+            border: Border.all(
+              width: 0.1
+            ),
+            borderRadius: BorderRadius.circular(12.0),
+          ),
+          child: Column(
             children: [
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  SBC.mW,
-                  const Icon(Icons.account_circle_sharp),
-                  SBC.mW,
-                  Text(title, style: Theme
-                      .of(context)
-                      .textTheme
-                      .bodyText2,),
+                  Row(
+                    children: [
+                      SBC.mW,
+                      const Icon(Icons.account_circle_sharp),
+                      SBC.mW,
+                      Text(title, style: Theme
+                          .of(context)
+                          .textTheme
+                          .bodyText2,),
+                    ],
+                  ),
+                  const Icon(Icons.arrow_forward_ios),
                 ],
               ),
-              const Icon(Icons.arrow_forward_ios),
+              SBC.xLH,
             ],
           ),
-          SBC.xLH,
-        ],
+        ),
       ),
     );
   }
