@@ -2,7 +2,7 @@
     package="com.example.hugeall_delivery_app">
 
    <application
-        android:label="hugeall_delivery_app"
+        android:label="hugeAll Delivery"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
