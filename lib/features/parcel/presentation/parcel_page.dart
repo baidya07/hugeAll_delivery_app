@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:calendar_date_picker2/calendar_date_picker2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:hugeall_delivery_app/core/presentation/resources/colors.dart';
 import 'package:hugeall_delivery_app/core/presentation/resources/ui_assets.dart';
 import 'package:hugeall_delivery_app/core/presentation/widget/forms/buttons.dart';
 import 'package:timelines/timelines.dart';
@@ -54,20 +55,22 @@ class _ParcelPageState extends State<ParcelPage> {
                     shrinkWrap: true,
                     theme: TimelineThemeData(
                       nodePosition: 0,
+                      color: primaryColor,
+                      indicatorPosition: 0,
                       connectorTheme: const ConnectorThemeData(
                         thickness: 1.0,
-                        color: Colors.black,
+                        space: 25,
+                        color: Color(0xff7B8698),
+
                       ),
                     ),
                     builder: TimelineTileBuilder.fromStyle(
-
                       connectorStyle: ConnectorStyle.dashedLine,
                       itemCount: 2,
-
                       contentsAlign: ContentsAlign.alternating,
                       contentsBuilder: (context, index) =>
                       const Padding(
-                        padding: EdgeInsets.all(9.0),
+                        padding: EdgeInsets.all(0.0),
                         child: _DeliveryWidget(),
                       ),
                     ),

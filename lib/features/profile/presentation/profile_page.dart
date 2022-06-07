@@ -4,7 +4,6 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hugeall_delivery_app/core/presentation/widget/circular_avatar.dart';
-import 'package:flutter_pdfview/flutter_pdfview.dart';
 import 'package:path_provider/path_provider.dart';
 
 import '../../../core/presentation/resources/size_constants.dart';
@@ -68,13 +67,13 @@ class _ProfilePageState extends State<ProfilePage> {
              ),
             SBC.xxLH,
             _ProfileTiles(title: 'About US', onTap: (){
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) =>
-                      PdfViewPage(path: pathPDF),
-                ),
-              );
+              // Navigator.push(
+              //   context,
+              //   MaterialPageRoute(
+              //     builder: (context) =>
+              //         PdfViewPage(path: pathPDF),
+              //   ),
+              // );
             },),
             SBC.mH,
             _ProfileTiles(title: 'Privacy & Policy', onTap: (){},),
@@ -107,7 +106,7 @@ class _ProfileTiles extends StatelessWidget {
       onTap: onTap,
       child: SingleChildScrollView(
         child: Container(
-          padding: EdgeInsets.symmetric(vertical: SC.sH),
+          padding: const EdgeInsets.symmetric(vertical: SC.sH),
           decoration: BoxDecoration(
             border: Border.all(
               width: 0.1
@@ -142,58 +141,58 @@ class _ProfileTiles extends StatelessWidget {
   }
 }
 
-class PdfViewPage extends StatefulWidget {
-  final String? path;
-  const PdfViewPage({Key? key, this.path}) : super(key: key);
+// class PdfViewPage extends StatefulWidget {
+//   final String? path;
+//   const PdfViewPage({Key? key, this.path}) : super(key: key);
+//
+//   @override
+//   State<PdfViewPage> createState() => _PdfViewPageState();
+// }
 
-  @override
-  State<PdfViewPage> createState() => _PdfViewPageState();
-}
-
-class _PdfViewPageState extends State<PdfViewPage> with WidgetsBindingObserver{
-  final Completer<PDFViewController> _controller =
-  Completer<PDFViewController>();
-  int? pages = 0;
-  int? currentPage = 0;
-  bool isReady = false;
-  String errorMessage = '';
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('PDF View'),
-      ),
-      body: Stack(
-        alignment:AlignmentDirectional.center,
-        children: [
-          PDFView(
-            filePath: widget.path,
-            enableSwipe: true,
-            swipeHorizontal: false,
-            autoSpacing: false,
-            pageFling: false,
-            onRender: (_pages) {
-              setState(() {
-                pages = _pages;
-                isReady = true;
-              });
-            },
-            onError: (error) {
-              print(error.toString());
-            },
-            onPageError: (page, error) {
-              print('$page: ${error.toString()}');
-            },
-            onViewCreated: (PDFViewController pdfViewController) {
-              _controller.complete(pdfViewController);
-            },
-            onPageChanged: (int? page, int? total) {
-              print('page change: $page/$total');
-            },
-          ),
-        ],
-
-      ),
-    );
-  }
-}
+// class _PdfViewPageState extends State<PdfViewPage> with WidgetsBindingObserver{
+//   // final Completer<PDFViewController> _controller =
+//   // Completer<PDFViewController>();
+//   int? pages = 0;
+//   int? currentPage = 0;
+//   bool isReady = false;
+//   String errorMessage = '';
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: const Text('PDF View'),
+//       ),
+//       body: Stack(
+//         alignment:AlignmentDirectional.center,
+//         children: [
+//           PDFView(
+//             filePath: widget.path,
+//             enableSwipe: true,
+//             swipeHorizontal: false,
+//             autoSpacing: false,
+//             pageFling: false,
+//             onRender: (_pages) {
+//               setState(() {
+//                 pages = _pages;
+//                 isReady = true;
+//               });
+//             },
+//             onError: (error) {
+//               print(error.toString());
+//             },
+//             onPageError: (page, error) {
+//               print('$page: ${error.toString()}');
+//             },
+//             onViewCreated: (PDFViewController pdfViewController) {
+//               _controller.complete(pdfViewController);
+//             },
+//             onPageChanged: (int? page, int? total) {
+//               print('page change: $page/$total');
+//             },
+//           ),
+//         ],
+//
+//       ),
+//     );
+//   }
+// }
